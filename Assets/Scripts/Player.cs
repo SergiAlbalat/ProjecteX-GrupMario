@@ -6,17 +6,27 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 {
     private MoveBehaviour _mB;
     private InputSystem_Actions _inputActions;
+    private Vector2 direction;
     private void Awake()
     {
         _mB = GetComponent<MoveBehaviour>();
         _inputActions = new InputSystem_Actions();
+        _inputActions.Player.SetCallbacks(this);
+    }
+    private void OnEnable()
+    {
+        _inputActions.Enable();
+    }
+    private void OnDisable()
+    {
+        _inputActions.Disable();
     }
     private void FixedUpdate()
     {
-        
+        _mB.Move(new Vector3(direction.x, 0, direction.y));
     }
     public void OnMove(InputAction.CallbackContext context)
     {
-        throw new System.NotImplementedException();
+        direction = context.ReadValue<Vector2>();
     }
 }

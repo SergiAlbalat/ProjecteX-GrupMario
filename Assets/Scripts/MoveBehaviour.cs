@@ -5,6 +5,7 @@ public class MoveBehaviour : MonoBehaviour
     private CharacterController _cC;
     [SerializeField] private Transform cameraPosition;
     [SerializeField] private float playerSpeed = 5;
+    [SerializeField] private float rotationSpeed = 5f;
     private void Awake()
     {
         _cC = GetComponent<CharacterController>();
@@ -20,5 +21,16 @@ public class MoveBehaviour : MonoBehaviour
     {
         Vector3 movement = direction.x * transform.right + direction.z * transform.forward;
         _cC.Move(movement * playerSpeed * Time.deltaTime);
+    }
+    public void Rotate(Vector3 direction)
+    {
+        if (direction == Vector3.zero) return;
+
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(
+            transform.rotation,
+            targetRotation,
+            rotationSpeed * Time.deltaTime
+        );
     }
 }

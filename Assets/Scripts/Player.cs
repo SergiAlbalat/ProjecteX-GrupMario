@@ -12,6 +12,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         _mB = GetComponent<MoveBehaviour>();
         _inputActions = new InputSystem_Actions();
         _inputActions.Player.SetCallbacks(this);
+        Cursor.lockState = CursorLockMode.Locked;
     }
     private void OnEnable()
     {

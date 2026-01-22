@@ -3,15 +3,26 @@ using UnityEngine;
 public class MoveBehaviour : MonoBehaviour
 {
     private CharacterController _cC;
+    private Vector3 _velocity;
     [SerializeField] private Transform cameraPosition;
     [SerializeField] private float playerSpeed = 5;
     [SerializeField] private float rotationSpeed = 5f;
+    [SerializeField] private float gravity = 0.2f;
     private void Awake()
     {
         _cC = GetComponent<CharacterController>();
     }
     private void FixedUpdate()
     {
+        if (_cC.isGrounded)
+        {
+            _velocity.y = -2;
+        }
+        else
+        {
+            _velocity.y += -gravity;
+        }
+        _cC.Move(_velocity * Time.deltaTime);
         Vector3 cameraForward = cameraPosition.forward;
         cameraForward.y = 0;
         Quaternion rotation = Quaternion.LookRotation(cameraForward);

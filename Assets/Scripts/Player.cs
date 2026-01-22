@@ -30,4 +30,12 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         direction = context.ReadValue<Vector2>();
     }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _mB.Jump();
+        }
+    }
 }

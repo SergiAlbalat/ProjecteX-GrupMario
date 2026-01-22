@@ -8,21 +8,19 @@ public class MoveBehaviour : MonoBehaviour
     [SerializeField] private float playerSpeed = 5;
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float gravity = 0.2f;
+    [SerializeField] private float jumpForce = 0.1f;
     private void Awake()
     {
         _cC = GetComponent<CharacterController>();
     }
-    private void FixedUpdate()
+    private void Update()
     {
-        if (_cC.isGrounded)
+        if (_cC.isGrounded && _velocity.y < 0)
         {
-            _velocity.y = -2;
+            _velocity.y = -1;
         }
-        else
-        {
-            _velocity.y += -gravity;
-        }
-        _cC.Move(_velocity * Time.deltaTime);
+        _velocity.y -= gravity * Time.deltaTime;
+        _cC.Move(_velocity);
         Vector3 cameraForward = cameraPosition.forward;
         cameraForward.y = 0;
         Quaternion rotation = Quaternion.LookRotation(cameraForward);
@@ -32,6 +30,13 @@ public class MoveBehaviour : MonoBehaviour
     {
         Vector3 movement = direction.x * transform.right + direction.z * transform.forward;
         _cC.Move(movement * playerSpeed * Time.deltaTime);
+    }
+    public void Jump()
+    {
+        if(_cC.isGrounded)
+        {
+            _velocity.y = jumpForce;
+        }
     }
     public void Rotate(Vector3 direction)
     {

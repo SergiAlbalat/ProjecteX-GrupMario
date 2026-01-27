@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 [RequireComponent(typeof(MoveBehaviour))]
+[RequireComponent(typeof(PlayerCamera))]
 
 public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 {

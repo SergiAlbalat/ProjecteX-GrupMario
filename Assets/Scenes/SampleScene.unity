@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 232038073}
   - component: {fileID: 232038075}
   - component: {fileID: 232038074}
+  - component: {fileID: 232038076}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -285,11 +286,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b20c8ed09804ac42868d778f64977c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveBehaviour
-  cameraPosition: {fileID: 306699530}
-  playerSpeed: 5
+  characterSpeed: 5
   rotationSpeed: 5
   gravity: 0.2
   jumpForce: 0.1
+--- !u!114 &232038076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232038068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a1778b12cb6984a999c2553c343ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCamera
+  cameraPosition: {fileID: 306699530}
 --- !u!1 &274950131
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,7 +430,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2897659c89428e44485fed493dae0417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  moveSpeed: 3
   pos1: {fileID: 1148543848}
   pos2: {fileID: 1258417147}
 --- !u!114 &274950139
@@ -432,8 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b20c8ed09804ac42868d778f64977c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveBehaviour
-  cameraPosition: {fileID: 0}
-  playerSpeed: 5
+  characterSpeed: 5
   rotationSpeed: 5
   gravity: 0.2
   jumpForce: 0.1

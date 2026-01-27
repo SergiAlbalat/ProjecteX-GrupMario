@@ -1,9 +1,7 @@
 using UnityEngine;
-
 [RequireComponent(typeof(MoveBehaviour))]
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 3f;
     [SerializeField] private Transform pos1;
     [SerializeField] private Transform pos2;
     private MoveBehaviour _mB;
@@ -17,11 +15,13 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        Vector3 direction = (currentTarget.position - transform.position).normalized;
-        _mB.Move(direction * moveSpeed * Time.deltaTime);
-        _mB.Rotate(direction);
+        _mB.MoveTo(currentTarget.position);
 
-        if (Vector3.Distance(transform.position, currentTarget.position) < 0.1f)
+        Vector3 currentPosition = transform.position;
+        currentPosition.y = 0;
+        Vector3 objectivePosition = currentTarget.position;
+        objectivePosition.y = 0;
+        if (Vector3.Distance(currentPosition, objectivePosition) < 0.1f)
         {
             SwitchTarget();
         }

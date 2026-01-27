@@ -36,8 +36,6 @@ public class MoveBehaviour : MonoBehaviour
     }
     public void Rotate(Vector3 direction)
     {
-        if (direction == Vector3.zero) return;
-
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(
             transform.rotation,
@@ -53,10 +51,14 @@ public class MoveBehaviour : MonoBehaviour
         objectivePosition.y = 0;
         Vector3 direction = (objectivePosition - currentPosition).normalized;
         Rotate(direction);
-        float angle = Vector3.Angle(transform.forward, direction);
-        if(angle < 2)
+        Vector3 forward = transform.forward;
+        //forward.y = 0;
+        //forward.Normalize();
+        float angle = Vector3.Angle(forward, direction);
+        if(angle < 5)
         {
-            Move(direction);
+            Move(forward);
         }
+        //Hacer un move para npc propio
     }
 }

@@ -25,7 +25,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     }
     private void FixedUpdate()
     {
-        _mB.Move(new Vector3(direction.x, 0, direction.y));
+        _mB.MoveFirstPerson(new Vector3(direction.x, 0, direction.y));
     }
     public void OnMove(InputAction.CallbackContext context)
     {

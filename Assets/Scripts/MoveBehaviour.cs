@@ -22,10 +22,10 @@ public class MoveBehaviour : MonoBehaviour
         _velocity.y -= gravity * Time.deltaTime;
         _cC.Move(_velocity);
     }
-    public void Move(Vector3 direction)
+    public void MoveFirstPerson(Vector3 direction)
     {
         Vector3 movement = direction.x * transform.right + direction.z * transform.forward;
-        _cC.Move(movement * characterSpeed * Time.deltaTime);
+        Move(movement);
     }
     public void Jump()
     {
@@ -60,5 +60,9 @@ public class MoveBehaviour : MonoBehaviour
             Move(forward);
         }
         //Hacer un move para npc propio
+    }
+    public void Move(Vector3 direction)
+    {
+        _cC.Move(direction * characterSpeed * Time.deltaTime);
     }
 }

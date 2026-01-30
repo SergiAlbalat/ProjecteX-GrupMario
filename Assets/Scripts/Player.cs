@@ -46,4 +46,11 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             Debug.Log("You death =(");
         }
     }
+    public void OnRun(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            _mB.Run(true);
+        if (context.canceled)
+            _mB.Run(false);
+    }
 }

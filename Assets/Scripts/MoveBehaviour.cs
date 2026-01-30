@@ -5,13 +5,16 @@ public class MoveBehaviour : MonoBehaviour
 {
     private CharacterController _cC;
     private Vector3 _velocity;
-    [SerializeField] private float characterSpeed = 5;
+    [SerializeField] private float characterSpeed = 10;
+    [SerializeField] private float runSpeed = 15;
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float gravity = 0.2f;
     [SerializeField] private float jumpForce = 0.1f;
+    private float currentSpeed; 
     private void Awake()
     {
         _cC = GetComponent<CharacterController>();
+        currentSpeed = characterSpeed;
     }
     private void Update()
     {
@@ -57,10 +60,16 @@ public class MoveBehaviour : MonoBehaviour
         {
             Move(forward);
         }
-        //Hacer un move para npc propio
     }
     public void Move(Vector3 direction)
     {
-        _cC.Move(direction * characterSpeed * Time.deltaTime);
+        _cC.Move(direction * currentSpeed * Time.deltaTime);
+    }
+    public void Run(bool activated)
+    {
+        if (activated)
+            currentSpeed = runSpeed;
+        else
+            currentSpeed = characterSpeed;
     }
 }

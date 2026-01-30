@@ -52,8 +52,6 @@ public class MoveBehaviour : MonoBehaviour
         Vector3 direction = (objectivePosition - currentPosition).normalized;
         Rotate(direction);
         Vector3 forward = transform.forward;
-        //forward.y = 0;
-        //forward.Normalize();
         float angle = Vector3.Angle(forward, direction);
         if(angle < 5)
         {

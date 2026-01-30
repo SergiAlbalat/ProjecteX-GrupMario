@@ -31,4 +31,11 @@ public class Enemy : MonoBehaviour
     {
         currentTarget = currentTarget == pos1 ? pos2 : pos1;
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("KillFoot"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

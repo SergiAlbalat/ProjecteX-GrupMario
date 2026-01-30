@@ -39,4 +39,11 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             _mB.Jump();
         }
     }
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("You death =(");
+        }
+    }
 }

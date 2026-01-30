@@ -1,36 +1,66 @@
 using UnityEngine;
+[RequireComponent (typeof(CharacterController))]
 
 public class MoveBehaviour : MonoBehaviour
 {
     private CharacterController _cC;
-    [SerializeField] private Transform cameraPosition;
-    [SerializeField] private float playerSpeed = 5;
+    private Vector3 _velocity;
+    [SerializeField] private float characterSpeed = 5;
     [SerializeField] private float rotationSpeed = 5f;
+    [SerializeField] private float gravity = 0.2f;
+    [SerializeField] private float jumpForce = 0.1f;
     private void Awake()
     {
         _cC = GetComponent<CharacterController>();
     }
-    private void FixedUpdate()
+    private void Update()
     {
-        Vector3 cameraForward = cameraPosition.forward;
-        cameraForward.y = 0;
-        Quaternion rotation = Quaternion.LookRotation(cameraForward);
-        transform.rotation = rotation;
+        if (_cC.isGrounded && _velocity.y < 0)
+        {
+            _velocity.y = -1;
+        }
+        _velocity.y -= gravity * Time.deltaTime;
+        _cC.Move(_velocity);
     }
-    public void Move(Vector3 direction)
+    public void MoveFirstPerson(Vector3 direction)
     {
         Vector3 movement = direction.x * transform.right + direction.z * transform.forward;
-        _cC.Move(movement * playerSpeed * Time.deltaTime);
+        Move(movement);
+    }
+    public void Jump()
+    {
+        if(_cC.isGrounded)
+        {
+            _velocity.y = jumpForce;
+        }
     }
     public void Rotate(Vector3 direction)
     {
-        if (direction == Vector3.zero) return;
-
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(
             transform.rotation,
             targetRotation,
             rotationSpeed * Time.deltaTime
         );
+    }
+    public void MoveTo(Vector3 position)
+    {
+        Vector3 currentPosition = transform.position;
+        currentPosition.y = 0;
+        Vector3 objectivePosition = position;
+        objectivePosition.y = 0;
+        Vector3 direction = (objectivePosition - currentPosition).normalized;
+        Rotate(direction);
+        Vector3 forward = transform.forward;
+        float angle = Vector3.Angle(forward, direction);
+        if(angle < 5)
+        {
+            Move(forward);
+        }
+        //Hacer un move para npc propio
+    }
+    public void Move(Vector3 direction)
+    {
+        _cC.Move(direction * characterSpeed * Time.deltaTime);
     }
 }

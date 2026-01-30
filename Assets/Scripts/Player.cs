@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 [RequireComponent(typeof(MoveBehaviour))]
+[RequireComponent(typeof(PlayerCamera))]
 
 public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 {
@@ -24,10 +25,18 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     }
     private void FixedUpdate()
     {
-        _mB.Move(new Vector3(direction.x, 0, direction.y));
+        _mB.MoveFirstPerson(new Vector3(direction.x, 0, direction.y));
     }
     public void OnMove(InputAction.CallbackContext context)
     {
         direction = context.ReadValue<Vector2>();
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _mB.Jump();
+        }
     }
 }

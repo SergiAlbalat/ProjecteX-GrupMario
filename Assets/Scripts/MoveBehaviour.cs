@@ -17,7 +17,7 @@ public class MoveBehaviour : MonoBehaviour
     {
         if (_cC.isGrounded && _velocity.y < 0)
         {
-            _velocity.y = -1;
+            _velocity.y = -0.01f;
         }
         _velocity.y -= gravity * Time.deltaTime;
         _cC.Move(_velocity);

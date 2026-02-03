@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 [RequireComponent(typeof(MoveBehaviour))]
@@ -5,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 {
+    [SerializeField] private GameObject projectile;
+    [SerializeField] private float projectileVelocity = 3f;
     private MoveBehaviour _mB;
     private InputSystem_Actions _inputActions;
     private Vector2 direction;
@@ -52,5 +55,14 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             _mB.Run(true);
         if (context.canceled)
             _mB.Run(false);
+    }
+
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            GameObject proj = Instantiate(projectile, transform.position, transform.rotation);
+            proj.GetComponent<Rigidbody>().linearVelocity = transform.forward * projectileVelocity * Time.deltaTime;
+        }
     }
 }

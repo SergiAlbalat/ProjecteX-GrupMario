@@ -1,16 +1,18 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(MoveBehaviour))]
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private Transform pos1;
-    [SerializeField] private Transform pos2;
+    [SerializeField] private List<Transform> keyPositions;
     private MoveBehaviour _mB;
     private Transform currentTarget;
+    private int currentKeyPosition = 0;
 
     private void Awake()
     {
         _mB = GetComponent<MoveBehaviour>();
-        currentTarget = pos2;
+        currentTarget = keyPositions[0];
     }
 
     private void Update()
@@ -29,7 +31,13 @@ public class Enemy : MonoBehaviour
 
     private void SwitchTarget()
     {
-        currentTarget = currentTarget == pos1 ? pos2 : pos1;
+        currentKeyPosition += 1;
+        if(currentKeyPosition == keyPositions.Count)
+        {
+            currentKeyPosition = 0;
+            keyPositions.Reverse();
+        }
+        currentTarget = keyPositions[currentKeyPosition];
     }
     private void OnTriggerEnter(Collider other)
     {

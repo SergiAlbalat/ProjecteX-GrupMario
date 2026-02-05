@@ -1,10 +1,13 @@
 using NUnit.Framework;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 [RequireComponent(typeof(MoveBehaviour))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private List<Transform> keyPositions;
+    [SerializeField] private EnemyType enemyType;
+    [SerializeField] private GameObject shell;
     private MoveBehaviour _mB;
     private Transform currentTarget;
     private int currentKeyPosition = 0;
@@ -43,7 +46,24 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("KillFoot"))
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+    private void Die()
+    {
+        switch(enemyType)
+        {
+            case EnemyType.Goomba:
+                Destroy(gameObject);
+                break;
+            case EnemyType.Koopa:
+                IntoShell();
+                break;
+        }
+    }
+    private void IntoShell()
+    {
+        Instantiate(shell, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

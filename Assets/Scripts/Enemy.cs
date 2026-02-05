@@ -1,16 +1,21 @@
+using NUnit.Framework;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 [RequireComponent(typeof(MoveBehaviour))]
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private Transform pos1;
-    [SerializeField] private Transform pos2;
+    [SerializeField] private List<Transform> keyPositions;
+    [SerializeField] private EnemyType enemyType;
+    [SerializeField] private GameObject shell;
     private MoveBehaviour _mB;
     private Transform currentTarget;
+    private int currentKeyPosition = 0;
 
     private void Awake()
     {
         _mB = GetComponent<MoveBehaviour>();
-        currentTarget = pos2;
+        currentTarget = keyPositions[0];
     }
 
     private void Update()
@@ -29,7 +34,13 @@ public class Enemy : MonoBehaviour
 
     private void SwitchTarget()
     {
-        currentTarget = currentTarget == pos1 ? pos2 : pos1;
+        currentKeyPosition += 1;
+        if(currentKeyPosition == keyPositions.Count)
+        {
+            currentKeyPosition = 0;
+            keyPositions.Reverse();
+        }
+        currentTarget = keyPositions[currentKeyPosition];
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
@@ -44,7 +55,24 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("KillFoot"))
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+    private void Die()
+    {
+        switch(enemyType)
+        {
+            case EnemyType.Goomba:
+                Destroy(gameObject);
+                break;
+            case EnemyType.Koopa:
+                IntoShell();
+                break;
+        }
+    }
+    private void IntoShell()
+    {
+        Instantiate(shell, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }

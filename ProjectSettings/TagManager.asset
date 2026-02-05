@@ -6,6 +6,7 @@ TagManager:
   tags:
   - KillFoot
   - Enemy
+  - MarioFireball
   layers:
   - Default
   - TransparentFX

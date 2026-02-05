@@ -31,6 +31,15 @@ public class Enemy : MonoBehaviour
     {
         currentTarget = currentTarget == pos1 ? pos2 : pos1;
     }
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("MarioFireball"))
+        {
+            Debug.Log("aaaaa");
+            Destroy(gameObject);
+            //DropCoin
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("KillFoot"))

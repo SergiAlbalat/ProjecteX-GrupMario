@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3741774657883539923}
   - component: {fileID: 7065275149179725092}
   - component: {fileID: 5464097607272316138}
+  - component: {fileID: 5644884413336129648}
   m_Layer: 8
   m_Name: Fireball
   m_TagString: Untagged
@@ -140,3 +141,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &5644884413336129648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7252806841481129356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59437b1a552e32d4db38da8903fc073b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Projectile
+  maxBounces: 8

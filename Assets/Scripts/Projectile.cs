@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private int maxBounces;
+    public Player player;
     private int numBounces = 0;
     private void OnCollisionEnter(Collision collision)
     {
@@ -10,12 +12,16 @@ public class Projectile : MonoBehaviour
         {
             Debug.Log("Hit enemy");
             Destroy(collision.gameObject); // enemy dies
-            Destroy(gameObject);           // fireball disappears
+            Destroy(gameObject);
+            player.stack.Push(gameObject);
+            gameObject.SetActive(false);
         }
         numBounces++;
         if(numBounces >= maxBounces)
         {
-            Destroy(gameObject);
+            player.stack.Push(gameObject);
+            gameObject.SetActive(false);
+            numBounces = 0;
         }
     }
 }

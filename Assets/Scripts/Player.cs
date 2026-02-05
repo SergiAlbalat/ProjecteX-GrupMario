@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 [RequireComponent(typeof(MoveBehaviour))]
@@ -9,6 +10,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     [SerializeField] private GameObject projectile;
     [SerializeField] private float projectileVelocity = 3f;
     [SerializeField] private Transform shootPoint;
+    public Stack<GameObject> stack = new Stack<GameObject>();
     private MoveBehaviour _mB;
     private InputSystem_Actions _inputActions;
     private Vector2 direction;
@@ -62,9 +64,20 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         if (context.performed)
         {
-            GameObject proj = Instantiate(projectile, shootPoint.position, transform.rotation);
-            Rigidbody rb = proj.GetComponent<Rigidbody>();
-            rb.linearVelocity = shootPoint.forward * projectileVelocity;
+            if (stack.Count == 0)
+            {
+                GameObject proj = Instantiate(projectile, shootPoint.position, transform.rotation);
+                Rigidbody rb = proj.GetComponent<Rigidbody>();
+                rb.linearVelocity = shootPoint.forward * projectileVelocity;
+                proj.GetComponent<Projectile>().player = this;
+            } else
+            {
+                GameObject proj = stack.Pop();
+                proj.transform.position = shootPoint.position;
+                proj.SetActive(true);
+                Rigidbody rb = proj.GetComponent<Rigidbody>();
+                rb.linearVelocity = shootPoint.forward * projectileVelocity;
+            }
         }
     }
 }

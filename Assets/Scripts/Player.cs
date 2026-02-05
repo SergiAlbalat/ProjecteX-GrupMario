@@ -8,6 +8,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 {
     [SerializeField] private GameObject projectile;
     [SerializeField] private float projectileVelocity = 3f;
+    [SerializeField] private Transform shootPoint;
     private MoveBehaviour _mB;
     private InputSystem_Actions _inputActions;
     private Vector2 direction;
@@ -61,8 +62,9 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         if (context.performed)
         {
-            GameObject proj = Instantiate(projectile, transform.position, transform.rotation);
-            proj.GetComponent<Rigidbody>().linearVelocity = transform.forward * projectileVelocity * Time.deltaTime;
+            GameObject proj = Instantiate(projectile, shootPoint.position, transform.rotation);
+            Rigidbody rb = proj.GetComponent<Rigidbody>();
+            rb.linearVelocity = shootPoint.forward * projectileVelocity;
         }
     }
 }

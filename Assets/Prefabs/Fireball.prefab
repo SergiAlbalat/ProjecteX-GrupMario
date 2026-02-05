@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7065275149179725092}
   - component: {fileID: 5464097607272316138}
   - component: {fileID: 5644884413336129648}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 832
+    m_Bits: 3136
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -154,3 +154,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
   maxBounces: 8
+  player: {fileID: 0}

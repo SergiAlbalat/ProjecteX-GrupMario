@@ -15,6 +15,7 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
             player.stack.Push(gameObject);
             gameObject.SetActive(false);
+            numBounces = 0;
         }
         numBounces++;
         if(numBounces >= maxBounces)

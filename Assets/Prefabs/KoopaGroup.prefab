@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 62047878036482938}
   - component: {fileID: 3407812097539517503}
   - component: {fileID: 8944634996267039590}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Koopa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,9 +159,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 760370372258877042}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: KoopaGroup
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

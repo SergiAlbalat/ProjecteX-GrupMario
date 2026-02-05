@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4894200555668276713}
   m_Layer: 7
   m_Name: GoombaGroup
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,6 +201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2897659c89428e44485fed493dae0417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  pos1: {fileID: 0}
-  pos2: {fileID: 0}
   keyPositions: []
+  enemyType: 0
+  shell: {fileID: 0}

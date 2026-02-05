@@ -42,6 +42,15 @@ public class Enemy : MonoBehaviour
         }
         currentTarget = keyPositions[currentKeyPosition];
     }
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.CompareTag("MarioFireball"))
+        {
+            Debug.Log("aaaaa");
+            Destroy(gameObject);
+            //DropCoin
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("KillFoot"))

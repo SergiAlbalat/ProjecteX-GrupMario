@@ -12,7 +12,6 @@ public class Projectile : MonoBehaviour
         {
             Debug.Log("Hit enemy");
             Destroy(collision.gameObject); // enemy dies
-            Destroy(gameObject);
             player.stack.Push(gameObject);
             gameObject.SetActive(false);
             numBounces = 0;

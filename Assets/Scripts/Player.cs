@@ -96,4 +96,9 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             }
         }
     }
+
+    public void JumpOnKill()
+    {
+        _mB.Bounce();
+    }
 }

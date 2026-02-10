@@ -204,3 +204,4 @@ MonoBehaviour:
   keyPositions: []
   enemyType: 0
   shell: {fileID: 0}
+  player: {fileID: 0}

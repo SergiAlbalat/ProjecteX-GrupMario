@@ -68,6 +68,10 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             hasFireFlower=true;
             isSmall=false;
             Destroy(hit.gameObject);
+        } else if (hit.gameObject.CompareTag("Mushroom"))
+        {
+            isSmall = false;
+            Destroy(hit.gameObject);
         }
     }
     public void OnRun(InputAction.CallbackContext context)

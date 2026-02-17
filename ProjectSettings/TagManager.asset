@@ -7,6 +7,7 @@ TagManager:
   - KillFoot
   - Enemy
   - MarioFireball
+  - FireFlower
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,6 @@ TagManager:
   - Terrain
   - Projectile
   - Player
-  - 
-  - 
   - 
   - 
   - 

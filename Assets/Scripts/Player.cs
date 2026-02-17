@@ -49,8 +49,24 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         if (hit.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("You death =(");
+            Die();
         }
+        if (hit.gameObject.CompareTag("Shell"))
+        {
+            Shell shell = hit.gameObject.GetComponent<Shell>();
+            if (shell.moving)
+            {
+                Die();
+            }
+            else
+            {
+                shell.GetDirection(new Vector3(direction.x, 0, direction.y), transform.rotation);
+            }
+        }
+    }
+    public void Die()
+    {
+        Debug.Log("You death =(");
     }
     public void OnRun(InputAction.CallbackContext context)
     {
@@ -79,5 +95,10 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
                 rb.linearVelocity = shootPoint.forward * projectileVelocity;
             }
         }
+    }
+
+    public void JumpOnKill()
+    {
+        _mB.Bounce();
     }
 }

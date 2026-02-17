@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8944634996267039590}
   m_Layer: 7
   m_Name: Koopa
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,6 +150,7 @@ MonoBehaviour:
   keyPositions: []
   enemyType: 1
   shell: {fileID: 7671423201884842318, guid: 95b3b5020a3197644ac2f93e1036a19e, type: 3}
+  player: {fileID: 0}
 --- !u!1 &3977376518858919208
 GameObject:
   m_ObjectHideFlags: 0

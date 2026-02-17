@@ -72,4 +72,8 @@ public class MoveBehaviour : MonoBehaviour
         else
             currentSpeed = characterSpeed;
     }
+    public void Bounce()
+    {
+        _velocity.y = jumpForce/2;
+    }
 }

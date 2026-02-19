@@ -16,7 +16,7 @@ public class MoveBehaviour : MonoBehaviour
         _cC = GetComponent<CharacterController>();
         currentSpeed = characterSpeed;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (_cC.isGrounded && _velocity.y < 0)
         {

@@ -11,6 +11,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     [SerializeField] private float projectileVelocity = 3f;
     [SerializeField] private float immunityFrames = 1f;   // Immunity frames in seconds
     [SerializeField] private Transform shootPoint;
+    private CharacterController charController;
     private bool hasFireFlower = false;
     private bool isSmall = true;
     private float lastDmgTime; // Last time character took dmg
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         _mB = GetComponent<MoveBehaviour>();
         _inputActions = new InputSystem_Actions();
         _inputActions.Player.SetCallbacks(this);
+        charController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
     }
     private void OnEnable()
@@ -60,7 +62,9 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             else { 
                 hasFireFlower = false;
                 isSmall = true;
-                Debug.Log("You are smol");
+                charController.enabled = false;
+                transform.localScale = new Vector3(0.55f, 0.55f, 0.55f);
+                charController.enabled = true;
             }
             lastDmgTime = Time.time;
         } else if (hit.gameObject.CompareTag("FireFlower"))
@@ -68,10 +72,16 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             hasFireFlower=true;
             isSmall=false;
             Destroy(hit.gameObject);
+            charController.enabled = false;
+            transform.localScale = new Vector3(1f, 1f, 1f);
+            charController.enabled = true;
         } else if (hit.gameObject.CompareTag("Mushroom"))
         {
             isSmall = false;
             Destroy(hit.gameObject);
+            charController.enabled = false;
+            transform.localScale = new Vector3(1f, 1f, 1f);
+            charController.enabled = true;
         }
     }
     public void OnRun(InputAction.CallbackContext context)

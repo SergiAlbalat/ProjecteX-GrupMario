@@ -9,6 +9,8 @@ TagManager:
   - MarioFireball
   - Shell
   - Terrain
+  - BowserArea
+  - Bowser
   layers:
   - Default
   - TransparentFX

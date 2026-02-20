@@ -61,6 +61,21 @@ public class MoveBehaviour : MonoBehaviour
             Move(forward);
         }
     }
+    public void MoveAway(Vector3 position)
+    {
+        Vector3 currentPosition = transform.position;
+        currentPosition.y = 0;
+        Vector3 objectivePosition = position;
+        objectivePosition.y = 0;
+        Vector3 direction = (objectivePosition - currentPosition).normalized;
+        Rotate(direction);
+        Vector3 forward = transform.forward;
+        float angle = Vector3.Angle(forward, direction);
+        if (angle < 5)
+        {
+            Move(-forward);
+        }
+    }
     public void Move(Vector3 direction)
     {
         _cC.Move(direction * currentSpeed * Time.deltaTime);
@@ -75,5 +90,11 @@ public class MoveBehaviour : MonoBehaviour
     public void Bounce()
     {
         _velocity.y = jumpForce/2;
+    }
+    public void Teleport(Vector3 position)
+    {
+        _cC.enabled = false;
+        transform.position = position;
+        _cC.enabled = true;
     }
 }

@@ -12,7 +12,7 @@ public class MoveBehaviour : MonoBehaviour
     [SerializeField] private float jumpForce = 0.1f;
     private float currentSpeed; 
     private void Awake()
-    {
+    {   
         _cC = GetComponent<CharacterController>();
         currentSpeed = characterSpeed;
     }

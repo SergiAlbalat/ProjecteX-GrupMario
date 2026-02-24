@@ -444,6 +444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   projectile: {fileID: 7252806841481129356, guid: 19273762235456c4c91c4aaa9d0e6af1, type: 3}
   projectileVelocity: 8
+  immunityFrames: 2
   shootPoint: {fileID: 275073407}
 --- !u!114 &232038075
 MonoBehaviour:

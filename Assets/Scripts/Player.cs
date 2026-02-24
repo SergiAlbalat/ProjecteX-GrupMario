@@ -9,7 +9,12 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 {
     [SerializeField] private GameObject projectile;
     [SerializeField] private float projectileVelocity = 3f;
+    [SerializeField] private float immunityFrames = 1f;   // Immunity frames in seconds
     [SerializeField] private Transform shootPoint;
+    private CharacterController charController;
+    private bool hasFireFlower = false;
+    private bool isSmall = true;
+    private float lastDmgTime; // Last time character took dmg
     public Stack<GameObject> stack = new Stack<GameObject>();
     private MoveBehaviour _mB;
     private InputSystem_Actions _inputActions;
@@ -19,6 +24,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         _mB = GetComponent<MoveBehaviour>();
         _inputActions = new InputSystem_Actions();
         _inputActions.Player.SetCallbacks(this);
+        charController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
     }
     private void OnEnable()
@@ -47,9 +53,35 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.CompareTag("Enemy"))
+        if (hit.gameObject.CompareTag("Enemy") && Time.time >= lastDmgTime + immunityFrames)
         {
-            Die();
+            if (isSmall)
+            {
+                Debug.Log("You death =(");
+            }
+            else { 
+                hasFireFlower = false;
+                isSmall = true;
+                charController.enabled = false;
+                transform.localScale = new Vector3(0.55f, 0.55f, 0.55f);
+                charController.enabled = true;
+            }
+            lastDmgTime = Time.time;
+        } else if (hit.gameObject.CompareTag("FireFlower"))
+        {
+            hasFireFlower=true;
+            isSmall=false;
+            Destroy(hit.gameObject);
+            charController.enabled = false;
+            transform.localScale = new Vector3(1f, 1f, 1f);
+            charController.enabled = true;
+        } else if (hit.gameObject.CompareTag("Mushroom"))
+        {
+            isSmall = false;
+            Destroy(hit.gameObject);
+            charController.enabled = false;
+            transform.localScale = new Vector3(1f, 1f, 1f);
+            charController.enabled = true;
         }
         if (hit.gameObject.CompareTag("Shell"))
         {
@@ -78,7 +110,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     public void OnFire(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && hasFireFlower)
         {
             if (stack.Count == 0)
             {

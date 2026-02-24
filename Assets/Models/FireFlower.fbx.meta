@@ -3,7 +3,12 @@ guid: 0a2f73ff50b3a2b4689d9400318c73c0
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Flor_De_Fuego
+    second: {fileID: 2100000, guid: fc9fa29687c9b634bab7f93906895c6b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

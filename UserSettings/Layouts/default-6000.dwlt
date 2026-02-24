@@ -1097,7 +1097,7 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 9.660704, y: 17.07234, z: 3.713435}
+    m_Target: {x: 106.303116, y: 59.906612, z: 7.3276825}
     speed: 2
     m_Value: {x: 9.660704, y: 17.07234, z: 3.713435}
   m_RenderMode: 0
@@ -1145,11 +1145,11 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.22856039, y: -0.11302088, z: 0.026725385, w: 0.96657944}
+    m_Target: {x: 0.08864482, y: -0.86027616, z: 0.16027805, w: 0.47579202}
     speed: 2
     m_Value: {x: -0.22856037, y: 0.11302088, z: -0.026725385, w: -0.9665794}
   m_Size:
-    m_Target: 21.77481
+    m_Target: 50.53909
     speed: 2
     m_Value: 21.77481
   m_Ortho:
@@ -1225,7 +1225,7 @@ MonoBehaviour:
     m_DynamicPanelBehavior: 0
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 107.79999}
+      scrollPos: {x: 0, y: 0}
       m_SelectedIDs: []
       m_LastClickedID:
         m_Data: 0

@@ -92,7 +92,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             }
             else
             {
-                shell.GetDirection(new Vector3(direction.x, 0, direction.y), transform.rotation);
+                shell.GetDirection(transform.localToWorldMatrix.MultiplyVector(new Vector3(direction.x, 0, direction.y)), transform.rotation);
             }
         }
     }

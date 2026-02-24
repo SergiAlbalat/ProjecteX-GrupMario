@@ -1,18 +1,19 @@
 using NUnit.Framework.Internal;
 using Unity.VisualScripting;
 using UnityEngine;
-[RequireComponent (typeof(MoveBehaviour))]
+[RequireComponent(typeof(Rigidbody))]
 
 public class Shell : MonoBehaviour
 {
     [SerializeField] private float bounceCooldown = 0.1f;
-    private MoveBehaviour _mB;
+    [SerializeField] private float shellVelocity = 10f;
+    private Rigidbody _rB;
     private Vector3 _direction = new Vector3(0, 0, 0);
     public bool moving = false;
     private float _lastBounceTime = -10f;
     private void Awake()
     {
-        _mB = GetComponent<MoveBehaviour>();
+        _rB = GetComponent<Rigidbody>();
     }
     public void GetDirection(Vector3 direction, Quaternion rotation)
     {
@@ -21,17 +22,15 @@ public class Shell : MonoBehaviour
     }
     private void Update()
     {
-        _mB.MoveFirstPerson(_direction);
+        _rB.linearVelocity = _direction * shellVelocity;
     }
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(Time.time - _lastBounceTime < bounceCooldown)
+        if (Time.time - _lastBounceTime < bounceCooldown)
             return;
-        if (hit.gameObject.CompareTag("Terrain"))
+        if (collision.gameObject.CompareTag("Terrain"))
         {
-            Vector3 normal = hit.normal;
-            // Vector3 dirHorizontal = new Vector3(_direction.x, 0f, _direction.z);
-            // if (Vector3.Dot(dirHorizontal, normal) >= 0f) return;
+            Vector3 normal = collision.contacts[0].normal;
             _direction = Vector3.Reflect(_direction, normal).normalized;
             _lastBounceTime = Time.time;
         }

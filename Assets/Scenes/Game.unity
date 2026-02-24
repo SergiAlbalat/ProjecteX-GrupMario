@@ -398,7 +398,7 @@ Transform:
   m_GameObject: {fileID: 232038068}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.99, y: 44.9525, z: 245.06}
+  m_LocalPosition: {x: -3.9899998, y: 21.9525, z: -2.9400024}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -444,7 +444,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   projectile: {fileID: 7252806841481129356, guid: 19273762235456c4c91c4aaa9d0e6af1, type: 3}
   projectileVelocity: 8
-  immunityFrames: 2
+  immunityFrames: 1
   shootPoint: {fileID: 275073407}
 --- !u!114 &232038075
 MonoBehaviour:
@@ -644,7 +644,7 @@ Transform:
   m_GameObject: {fileID: 306699528}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7, y: 45.5555, z: 245.16699}
+  m_LocalPosition: {x: -3.9999998, y: 22.5555, z: -2.8330023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -826,7 +826,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7, y: 45.5555, z: 245.16699}
+  m_LocalPosition: {x: -3.9999998, y: 22.5555, z: -2.8330023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1697,7 +1697,7 @@ GameObject:
   - component: {fileID: 758571133}
   m_Layer: 9
   m_Name: Stair.002
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3028,7 +3028,7 @@ GameObject:
   - component: {fileID: 1210190786}
   m_Layer: 9
   m_Name: Stair.003
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4130,7 +4130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 760370372258877042, guid: 106ff9ef99f2e2b4cb2d8f4698516f64, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 22.03
+      value: 23.34
       objectReference: {fileID: 0}
     - target: {fileID: 760370372258877042, guid: 106ff9ef99f2e2b4cb2d8f4698516f64, type: 3}
       propertyPath: m_LocalPosition.z

@@ -8,6 +8,10 @@ TagManager:
   - Enemy
   - MarioFireball
   - FireFlower
+  - Shell
+  - Terrain
+  - BowserArea
+  - Bowser
   layers:
   - Default
   - TransparentFX
@@ -21,6 +25,9 @@ TagManager:
   - Terrain
   - Projectile
   - Player
+  - Bowser
+  - 
+  - 
   - 
   - 
   - 

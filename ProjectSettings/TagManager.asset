@@ -12,6 +12,7 @@ TagManager:
   - Terrain
   - BowserArea
   - Bowser
+  - BowserFireball
   layers:
   - Default
   - TransparentFX
@@ -26,9 +27,6 @@ TagManager:
   - Projectile
   - Player
   - Bowser
-  - 
-  - 
-  - 
   - 
   - 
   - 

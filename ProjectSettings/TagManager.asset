@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - MarioFireball
   - FireFlower
+  - InteractHead
+  - Mushroom
   - Shell
   - Terrain
   - BowserArea
@@ -26,6 +28,8 @@ TagManager:
   - Terrain
   - Projectile
   - Player
+  - Blocks
+  - Head
   - Bowser
   - 
   - 

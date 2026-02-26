@@ -12,11 +12,11 @@ public class MoveBehaviour : MonoBehaviour
     [SerializeField] private float jumpForce = 0.1f;
     private float currentSpeed; 
     private void Awake()
-    {
+    {   
         _cC = GetComponent<CharacterController>();
         currentSpeed = characterSpeed;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (_cC.isGrounded && _velocity.y < 0)
         {

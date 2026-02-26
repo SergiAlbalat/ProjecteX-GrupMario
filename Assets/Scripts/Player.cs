@@ -9,12 +9,12 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
 {
     [SerializeField] private GameObject projectile;
     [SerializeField] private float projectileVelocity = 3f;
-    [SerializeField] private float immunityFrames = 1f;   // Immunity frames in seconds
+    [SerializeField] private float immunityFrames = 1f;
     [SerializeField] private Transform shootPoint;
     private CharacterController charController;
     private bool hasFireFlower = false;
     private bool isSmall = true;
-    private float lastDmgTime; // Last time character took dmg
+    private float lastDmgTime;
     public Stack<GameObject> stack = new Stack<GameObject>();
     private MoveBehaviour _mB;
     private InputSystem_Actions _inputActions;
@@ -53,42 +53,23 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.CompareTag("Enemy") && Time.time >= lastDmgTime + immunityFrames)
+        if (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Bowser") || hit.gameObject.CompareTag("BowserFireball") && Time.time >= lastDmgTime + immunityFrames)
         {
-            if (isSmall)
-            {
-                Debug.Log("You death =(");
-            }
-            else { 
-                hasFireFlower = false;
-                isSmall = true;
-                charController.enabled = false;
-                transform.localScale = new Vector3(0.55f, 0.55f, 0.55f);
-                charController.enabled = true;
-            }
-            lastDmgTime = Time.time;
+            TakeDamage();
         } else if (hit.gameObject.CompareTag("FireFlower"))
         {
+            GrowUp(hit);
             hasFireFlower=true;
-            isSmall=false;
-            Destroy(hit.gameObject);
-            charController.enabled = false;
-            transform.localScale = new Vector3(1f, 1f, 1f);
-            charController.enabled = true;
         } else if (hit.gameObject.CompareTag("Mushroom"))
         {
-            isSmall = false;
-            Destroy(hit.gameObject);
-            charController.enabled = false;
-            transform.localScale = new Vector3(1f, 1f, 1f);
-            charController.enabled = true;
+            GrowUp(hit);
         }
         if (hit.gameObject.CompareTag("Shell"))
         {
             Shell shell = hit.gameObject.GetComponent<Shell>();
             if (shell.moving)
             {
-                Die();
+                TakeDamage();
             }
             else
             {
@@ -96,9 +77,33 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             }
         }
     }
+    private void TakeDamage()
+    {
+        if (isSmall)
+        {
+            Die();
+        }
+        else
+        {
+            hasFireFlower = false;
+            isSmall = true;
+            charController.enabled = false;
+            transform.localScale = new Vector3(0.55f, 0.55f, 0.55f);
+            charController.enabled = true;
+        }
+        lastDmgTime = Time.time;
+    }
+    private void GrowUp(ControllerColliderHit powerObject)
+    {
+        isSmall = false;
+        Destroy(powerObject.gameObject);
+        charController.enabled = false;
+        transform.localScale = new Vector3(1f, 1f, 1f);
+        charController.enabled = true;
+    }
     public void Die()
     {
-        Debug.Log("You death =(");
+        GameManager.gameManager.LoseLive();
     }
     public void OnRun(InputAction.CallbackContext context)
     {

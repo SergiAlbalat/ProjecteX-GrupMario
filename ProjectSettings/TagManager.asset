@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - MarioFireball
   - FireFlower
+  - InteractHead
+  - Mushroom
   layers:
   - Default
   - TransparentFX
@@ -21,8 +23,8 @@ TagManager:
   - Terrain
   - Projectile
   - Player
-  - 
-  - 
+  - Blocks
+  - Head
   - 
   - 
   - 

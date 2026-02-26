@@ -10,6 +10,10 @@ TagManager:
   - FireFlower
   - InteractHead
   - Mushroom
+  - Shell
+  - Terrain
+  - BowserArea
+  - Bowser
   layers:
   - Default
   - TransparentFX
@@ -25,6 +29,11 @@ TagManager:
   - Player
   - Blocks
   - Head
+  - Bowser
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

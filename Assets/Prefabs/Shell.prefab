@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shell
   bounceCooldown: 0.1
+  shellVelocity: 20
   moving: 0
 --- !u!54 &3835097587919620130
 Rigidbody:

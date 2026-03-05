@@ -15,6 +15,7 @@ TagManager:
   - BowserArea
   - Bowser
   - BowserFireball
+  - PiranaPlant
   layers:
   - Default
   - TransparentFX
@@ -31,8 +32,6 @@ TagManager:
   - Blocks
   - Head
   - Bowser
-  - 
-  - 
   - 
   - 
   - 

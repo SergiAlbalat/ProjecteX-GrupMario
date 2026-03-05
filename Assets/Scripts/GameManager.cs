@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public static class GameManager
 {
     [SerializeField] private GameObject coinUI;
     public static GameManager gameManager;
@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
         if( _lives > 0)
         {
             SceneManager.LoadScene("Game");
+            Debug.Log(_lives);
         }
         else
         {

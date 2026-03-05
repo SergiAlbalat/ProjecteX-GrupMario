@@ -53,7 +53,13 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.CompareTag("Enemy") || hit.gameObject.CompareTag("Bowser") || hit.gameObject.CompareTag("BowserFireball") && Time.time >= lastDmgTime + immunityFrames)
+        if (hit.gameObject.CompareTag("Enemy") && Time.time >= lastDmgTime + immunityFrames)
+        {
+            if (hit.normal.y < 0.5)
+            {
+                TakeDamage();
+            }
+        }else if ((hit.gameObject.CompareTag("Bowser") || hit.gameObject.CompareTag("BowserFireball") || hit.gameObject.CompareTag("PiranaPlant")) && Time.time >= lastDmgTime + immunityFrames)
         {
             TakeDamage();
         } else if (hit.gameObject.CompareTag("FireFlower"))
@@ -77,7 +83,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             }
         }
     }
-    private void TakeDamage()
+    public void TakeDamage()
     {
         if (isSmall)
         {
@@ -103,7 +109,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     }
     public void Die()
     {
-        GameManager.gameManager.LoseLive();
+        GameManager.LoseLive();
     }
     public void OnRun(InputAction.CallbackContext context)
     {

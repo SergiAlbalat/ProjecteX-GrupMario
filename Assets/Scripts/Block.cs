@@ -35,4 +35,5 @@ public class Block : MonoBehaviour
         Vector3 offset = new Vector3(0, 0.5f, 0);
         Instantiate(itemInside, transform.position + offset, itemRotation);
     }
+    
 }

@@ -10,7 +10,8 @@ public class MoveBehaviour : MonoBehaviour
     [SerializeField] private float rotationSpeed = 5f;
     [SerializeField] private float gravity = 0.2f;
     [SerializeField] private float jumpForce = 0.1f;
-    private float currentSpeed; 
+    private float currentSpeed;
+    [SerializeField] private AnimationBehaviour _aB;
     private void Awake()
     {   
         _cC = GetComponent<CharacterController>();
@@ -59,6 +60,14 @@ public class MoveBehaviour : MonoBehaviour
         if(angle < 5)
         {
             Move(forward);
+            if(_aB != null)
+            {
+                _aB.Walk(1);
+            }
+        }
+        else if(_aB != null)
+        {
+            _aB.Walk(0);
         }
     }
     public void MoveAway(Vector3 position)

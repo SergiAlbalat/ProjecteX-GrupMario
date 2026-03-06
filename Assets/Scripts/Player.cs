@@ -144,4 +144,11 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         _mB.Bounce();
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Void"))
+        {
+            Die();
+        }
+    }
 }

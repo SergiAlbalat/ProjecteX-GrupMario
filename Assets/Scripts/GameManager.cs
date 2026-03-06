@@ -5,15 +5,10 @@ using UnityEngine.SceneManagement;
 
 public static class GameManager
 {
-    [SerializeField] private GameObject coinUI;
-    public static GameManager gameManager;
-    private int _lives = 3;
-    private int _coins = 0;
-    private void Awake()
-    {
-        gameManager = new GameManager();
-    }
-    public void LoseLive()
+    [SerializeField] private static GameObject coinUI;
+    private static int _lives = 3;
+    private static int _coins = 0;
+    public static void LoseLive()
     {
         _lives -= 1;
         if( _lives > 0)
@@ -26,7 +21,7 @@ public static class GameManager
             SceneManager.LoadScene("GameOver");
         }
     }
-    private void GotCoin()
+    private static void GotCoin()
     {
         _coins++;
         //extMeshPro mText = coinUI.GetComponent();

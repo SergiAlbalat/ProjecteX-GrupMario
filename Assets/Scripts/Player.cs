@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 [RequireComponent(typeof(MoveBehaviour))]
 [RequireComponent(typeof(PlayerCamera))]
 
@@ -149,6 +150,10 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         if (other.CompareTag("Void"))
         {
             Die();
+        }
+        if (other.CompareTag("Door"))
+        {
+            SceneManager.LoadScene("BowserCastle");
         }
     }
 }

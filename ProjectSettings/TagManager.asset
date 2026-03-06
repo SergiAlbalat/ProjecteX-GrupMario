@@ -16,6 +16,7 @@ TagManager:
   - Bowser
   - BowserFireball
   - PiranaPlant
+  - Void
   layers:
   - Default
   - TransparentFX

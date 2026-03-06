@@ -942,8 +942,10 @@ GameObject:
   - component: {fileID: 2219375194670395063}
   - component: {fileID: 2598681856173942531}
   - component: {fileID: 4709523713286773143}
+  - component: {fileID: 6763908178115068235}
+  - component: {fileID: 7184311958301008686}
   m_Layer: 0
-  m_Name: GoombaIdle
+  m_Name: Goomba
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1018,12 +1020,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 1
-  m_Radius: 0.5
+  m_Radius: 2.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 2.3, z: 0}
 --- !u!114 &2598681856173942531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1041,6 +1043,7 @@ MonoBehaviour:
   rotationSpeed: 5
   gravity: 0.2
   jumpForce: 0.1
+  _aB: {fileID: 7184311958301008686}
 --- !u!114 &4709523713286773143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1053,11 +1056,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2897659c89428e44485fed493dae0417, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  keyPositions: []
+  keyPositions:
+  - {fileID: 0}
+  - {fileID: 0}
   enemyType: 0
   shell: {fileID: 0}
   player: {fileID: 0}
   CanKill: 1
+--- !u!95 &6763908178115068235
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5705114589532141067}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 09eddc7f5814dcc49b83658c24a91435, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &7184311958301008686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5705114589532141067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37bb2a63de5ce85499702bb235316ab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationBehaviour
 --- !u!1 &5799026096597924247
 GameObject:
   m_ObjectHideFlags: 0

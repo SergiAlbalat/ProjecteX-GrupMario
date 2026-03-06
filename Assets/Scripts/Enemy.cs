@@ -10,7 +10,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject shell;
     [SerializeField] private Player player;
     private MoveBehaviour _mB;
-    public bool CanKill = true;
     private Transform currentTarget;
     private int currentKeyPosition = 0;
 
@@ -46,11 +45,6 @@ public class Enemy : MonoBehaviour
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.CompareTag("Player") && CanKill)
-        {
-            Player player = hit.gameObject.GetComponent<Player>();
-            player.TakeDamage();
-        }
         if (hit.gameObject.CompareTag("MarioFireball"))
         {
             Debug.Log("aaaaa");
@@ -60,18 +54,11 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Enemy Enter Trigger");
         if (other.gameObject.CompareTag("KillFoot"))
         {
-            CanKill = false;
             Die();
             player.JumpOnKill();
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("KillFoot"))
-        {
-            CanKill = true;
         }
     }
     private void Die()

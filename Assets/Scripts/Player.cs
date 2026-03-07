@@ -70,6 +70,10 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         } else if (hit.gameObject.CompareTag("Mushroom"))
         {
             GrowUp(hit);
+        }else if (hit.gameObject.CompareTag("Axe"))
+        {
+            Axe axe = hit.gameObject.GetComponent<Axe>();
+            axe.ActivateAxe();
         }
         if (hit.gameObject.CompareTag("Shell"))
         {

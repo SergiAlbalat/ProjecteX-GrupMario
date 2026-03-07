@@ -18,6 +18,7 @@ TagManager:
   - PiranaPlant
   - Void
   - Door
+  - Axe
   layers:
   - Default
   - TransparentFX

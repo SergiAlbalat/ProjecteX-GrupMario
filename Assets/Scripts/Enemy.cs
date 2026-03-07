@@ -48,8 +48,8 @@ public class Enemy : MonoBehaviour
         if (hit.gameObject.CompareTag("MarioFireball"))
         {
             Debug.Log("aaaaa");
+            GameManager.gm.GotCoin();
             Destroy(gameObject);
-            //DropCoin
         }
     }
     private void OnTriggerEnter(Collider other)

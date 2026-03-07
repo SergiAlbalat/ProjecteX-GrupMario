@@ -114,7 +114,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     }
     public void Die()
     {
-        GameManager.LoseLive();
+        GameManager.gm.LoseLive();
     }
     public void OnRun(InputAction.CallbackContext context)
     {

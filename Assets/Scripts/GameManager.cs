@@ -1,30 +1,40 @@
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public static class GameManager
+public class GameManager : MonoBehaviour
 {
-    [SerializeField] private static GameObject coinUI;
-    private static int _lives = 3;
-    private static int _coins = 0;
-    public static void LoseLive()
+    [SerializeField] private TextMeshProUGUI coinUI;
+    public static GameManager gm;
+    private int _lives = 3;
+    private int _coins = 0;
+    private void Awake()
+    {
+        if (gm != null && gm != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        gm = this;
+        DontDestroyOnLoad(gameObject);
+    }
+    public void LoseLive()
     {
         _lives -= 1;
-        if( _lives > 0)
-        {
+        Debug.Log($"Lives remaining: {_lives}");
+        if (_lives > 0)
             SceneManager.LoadScene("Game");
-            Debug.Log(_lives);
-        }
         else
-        {
             SceneManager.LoadScene("GameOver");
-        }
     }
-    private static void GotCoin()
+    public void GotCoin()
     {
         _coins++;
-        //extMeshPro mText = coinUI.GetComponent();
-
+        if(_coins >= 100)
+        {
+            _coins = 0;
+            _lives++;
+        }
+        coinUI.text = _coins.ToString();
     }
 }

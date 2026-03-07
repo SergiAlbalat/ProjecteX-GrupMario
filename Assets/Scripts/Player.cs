@@ -144,7 +144,6 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             }
         }
     }
-
     public void JumpOnKill()
     {
         _mB.Bounce();
@@ -154,10 +153,13 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         if (other.CompareTag("Void"))
         {
             Die();
-        }
-        if (other.CompareTag("Door"))
+        } else if (other.CompareTag("Door"))
         {
             SceneManager.LoadScene("BowserCastle");
+        } else if (other.gameObject.CompareTag("Coin"))
+        {
+            Destroy(other.gameObject);
+            GameManager.gm.GotCoin();
         }
     }
 }

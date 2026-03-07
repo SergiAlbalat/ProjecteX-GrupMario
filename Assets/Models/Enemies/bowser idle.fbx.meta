@@ -1,24 +1,9 @@
 fileFormatVersion: 2
-guid: 1acde6a5e86e0c04a8921a97a269337d
+guid: 4610cb4b61b08534498c5113d452224a
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cabeza
-    second: {fileID: 2100000, guid: 093b14403bba86641b53908e2d017201, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Caparazon
-    second: {fileID: 2100000, guid: 68f22bdfd8eed8346947f0e6d9025e8c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cuerpo
-    second: {fileID: 2100000, guid: 251cd6b3927279345bf6e0a6a01ed6af, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -50,7 +35,7 @@ ModelImporter:
       takeName: Armature|ArmatureAction
       internalID: 4781951162920444690
       firstFrame: 0
-      lastFrame: 0
+      lastFrame: 99
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

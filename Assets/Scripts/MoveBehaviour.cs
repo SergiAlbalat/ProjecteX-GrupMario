@@ -29,6 +29,8 @@ public class MoveBehaviour : MonoBehaviour
     public void MoveFirstPerson(Vector3 direction)
     {
         Vector3 movement = direction.x * transform.right + direction.z * transform.forward;
+        if(_aB != null)
+            _aB.Walk(direction.magnitude);
         Move(movement);
     }
     public void Jump()
@@ -36,6 +38,10 @@ public class MoveBehaviour : MonoBehaviour
         if(_cC.isGrounded)
         {
             _velocity.y = jumpForce;
+            if(_aB != null)
+            {
+                _aB.Jump();
+            }
         }
     }
     public void Rotate(Vector3 direction)

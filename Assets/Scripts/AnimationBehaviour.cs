@@ -11,4 +11,8 @@ public class AnimationBehaviour : MonoBehaviour
     {
         _animator.SetFloat("Velocity", velocity);
     }
+    public void Jump()
+    {
+        _animator.SetTrigger("Jump");
+    }
 }

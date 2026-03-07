@@ -539,6 +539,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: -3215555783603854218, guid: 0d016ee62366a8746b4868837a831025, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3104293385243900375, guid: 0d016ee62366a8746b4868837a831025, type: 3}
       propertyPath: m_Layer
       value: 11
@@ -661,7 +665,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0d016ee62366a8746b4868837a831025, type: 3}
       propertyPath: m_Name
-      value: Mario idle
+      value: MarioModel
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0d016ee62366a8746b4868837a831025, type: 3}
       propertyPath: m_Layer
@@ -742,6 +746,10 @@ PrefabInstance:
     - target: {fileID: 4424396828587804706, guid: 0d016ee62366a8746b4868837a831025, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4424396828587804706, guid: 0d016ee62366a8746b4868837a831025, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4482141197009750796, guid: 0d016ee62366a8746b4868837a831025, type: 3}
       propertyPath: m_Layer
@@ -854,7 +862,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d016ee62366a8746b4868837a831025, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1151274277}
   m_SourcePrefab: {fileID: 100100000, guid: 0d016ee62366a8746b4868837a831025, type: 3}
 --- !u!4 &382737813 stripped
 Transform:
@@ -1020,6 +1031,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &1151274276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0d016ee62366a8746b4868837a831025, type: 3}
+  m_PrefabInstance: {fileID: 382737812}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1151274277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151274276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37bb2a63de5ce85499702bb235316ab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationBehaviour
 --- !u!1001 &1194463063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1879,7 +1907,7 @@ MonoBehaviour:
   rotationSpeed: 5
   gravity: 0.2
   jumpForce: 0.2
-  _aB: {fileID: 0}
+  _aB: {fileID: 1151274277}
 --- !u!143 &2002483106
 CharacterController:
   m_ObjectHideFlags: 0

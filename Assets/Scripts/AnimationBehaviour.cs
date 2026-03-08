@@ -15,4 +15,8 @@ public class AnimationBehaviour : MonoBehaviour
     {
         _animator.SetTrigger("Jump");
     }
+    public void Attack()
+    {
+        _animator.SetTrigger("Attack");
+    }
 }

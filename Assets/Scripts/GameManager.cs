@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         player = FindAnyObjectByType<Player>();
+        player.gameObject.SetActive(false);
         player.gameObject.SetActive(true);
         if (_lives <= 0)
         {

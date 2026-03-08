@@ -7,7 +7,11 @@ public class SoundManager : MonoBehaviour
     {
         Music,
         PowerUp,
-        GameOver
+        GameOver,
+        Jump,
+        LosePowerUp,
+        VoidDeath,
+        NormalDeath
     }
     [System.Serializable]
     public struct AudioEntry

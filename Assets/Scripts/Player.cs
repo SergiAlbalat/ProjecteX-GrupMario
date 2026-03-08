@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -92,7 +93,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         if (isSmall)
         {
-            Die();
+            Die(false);
         }
         else
         {
@@ -101,6 +102,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             charController.enabled = false;
             transform.localScale = new Vector3(0.55f, 0.55f, 0.55f);
             charController.enabled = true;
+            GameManager.gm.PlayAudio(SoundManager.AudioClips.LosePowerUp);
         }
         lastDmgTime = Time.time;
     }
@@ -113,9 +115,9 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         charController.enabled = true;
         GameManager.gm.PlayAudio(SoundManager.AudioClips.PowerUp);
     }
-    public void Die()
+    public void Die(bool voidDeath)
     {
-        GameManager.gm.LoseLive();
+        GameManager.gm.LoseLive(voidDeath);
     }
     public void OnRun(InputAction.CallbackContext context)
     {
@@ -153,7 +155,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         if (other.CompareTag("Void"))
         {
-            Die();
+            Die(true);
         } else if (other.CompareTag("Door"))
         {
             SceneManager.LoadScene("BowserCastle");

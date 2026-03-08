@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -6,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI coinUI;
     [SerializeField] private TextMeshProUGUI lifeUI;
+    [SerializeField] private Player player;
     public static GameManager gm;
     private AudioSource _audio;
     private int _lives = 3;
@@ -23,6 +26,8 @@ public class GameManager : MonoBehaviour
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        player = FindAnyObjectByType<Player>();
+        player.gameObject.SetActive(true);
         if (_lives <= 0)
         {
             _lives = 3;
@@ -41,13 +46,24 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public void LoseLive()
+    public void LoseLive(bool voidDeath)
     {
+        player.gameObject.SetActive(false);
         _lives--;
         lifeUI.text = _lives.ToString();
         Debug.Log($"Lives remaining: {_lives}");
         if (_lives > 0)
-            SceneManager.LoadScene("Game");
+        {
+            StartCoroutine(LoadSceneAfterDelay(1f));
+            if (voidDeath)
+            {
+                PlayAudio(SoundManager.AudioClips.VoidDeath);
+            }
+            else
+            {
+                PlayAudio(SoundManager.AudioClips.NormalDeath);
+            }
+        }
         else
         {
             PlayAudio(SoundManager.AudioClips.GameOver);
@@ -70,5 +86,10 @@ public class GameManager : MonoBehaviour
         AudioClip audioClip = SoundManager.sm.GetClip(clip);
         if (audioClip != null)
             _audio.PlayOneShot(audioClip);
+    }
+    private IEnumerator LoadSceneAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene("Game");
     }
 }

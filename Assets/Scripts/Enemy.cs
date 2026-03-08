@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private List<Transform> keyPositions;
     [SerializeField] private EnemyType enemyType;
     [SerializeField] private GameObject shell;
-    [SerializeField] private Player player;
     private MoveBehaviour _mB;
     private Transform currentTarget;
     private int currentKeyPosition = 0;
@@ -47,9 +46,9 @@ public class Enemy : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("MarioFireball"))
         {
-            Debug.Log("aaaaa");
+            GameManager.gm.PlayAudio(SoundManager.AudioClips.Hit);
+            GameManager.gm.GotCoin();
             Destroy(gameObject);
-            //DropCoin
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -58,12 +57,13 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("KillFoot"))
         {
             Die();
-            player.JumpOnKill();
+            GameManager.gm.player.JumpOnKill();
         }
     }
     private void Die()
     {
-        switch(enemyType)
+        GameManager.gm.PlayAudio(SoundManager.AudioClips.Hit);
+        switch (enemyType)
         {
             case EnemyType.Goomba:
                 Destroy(gameObject);

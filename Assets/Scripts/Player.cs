@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -27,6 +28,8 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         _inputActions.Player.SetCallbacks(this);
         charController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
+        this.gameObject.SetActive(false);
+        this.gameObject.SetActive(true);
     }
     private void OnEnable()
     {
@@ -73,6 +76,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         }else if (hit.gameObject.CompareTag("Axe"))
         {
             Axe axe = hit.gameObject.GetComponent<Axe>();
+            GameManager.gm.PlayAudio(SoundManager.AudioClips.Axe);
             axe.ActivateAxe();
         }
         if (hit.gameObject.CompareTag("Shell"))
@@ -84,6 +88,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             }
             else
             {
+                GameManager.gm.PlayAudio(SoundManager.AudioClips.Hit);
                 shell.GetDirection(transform.localToWorldMatrix.MultiplyVector(new Vector3(direction.x, 0, direction.y)), transform.rotation);
             }
         }
@@ -92,7 +97,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         if (isSmall)
         {
-            Die();
+            Die(false);
         }
         else
         {
@@ -101,6 +106,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             charController.enabled = false;
             transform.localScale = new Vector3(0.55f, 0.55f, 0.55f);
             charController.enabled = true;
+            GameManager.gm.PlayAudio(SoundManager.AudioClips.LosePowerUp);
         }
         lastDmgTime = Time.time;
     }
@@ -111,10 +117,11 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         charController.enabled = false;
         transform.localScale = new Vector3(1f, 1f, 1f);
         charController.enabled = true;
+        GameManager.gm.PlayAudio(SoundManager.AudioClips.PowerUp);
     }
-    public void Die()
+    public void Die(bool voidDeath)
     {
-        GameManager.LoseLive();
+        GameManager.gm.LoseLive(voidDeath);
     }
     public void OnRun(InputAction.CallbackContext context)
     {
@@ -144,7 +151,6 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             }
         }
     }
-
     public void JumpOnKill()
     {
         _mB.Bounce();
@@ -153,11 +159,14 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     {
         if (other.CompareTag("Void"))
         {
-            Die();
-        }
-        if (other.CompareTag("Door"))
+            Die(true);
+        } else if (other.CompareTag("Door"))
         {
             SceneManager.LoadScene("BowserCastle");
+        } else if (other.gameObject.CompareTag("Coin"))
+        {
+            Destroy(other.gameObject);
+            GameManager.gm.GotCoin();
         }
     }
 }

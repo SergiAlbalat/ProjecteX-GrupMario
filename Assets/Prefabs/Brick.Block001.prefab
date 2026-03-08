@@ -122,6 +122,7 @@ MonoBehaviour:
   blockType: 0
   itemInside: {fileID: 0}
   player: {fileID: 0}
+  emptyBlockPrefab: {fileID: 1748405500713241866, guid: 8a52201ad421b294987890ee294c0094, type: 3}
 --- !u!65 &1702764857157544666
 BoxCollider:
   m_ObjectHideFlags: 0

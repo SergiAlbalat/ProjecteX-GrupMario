@@ -35,6 +35,10 @@ public class Bowser : MonoBehaviour
             _inRange = true;
 
         }
+        if (other.gameObject.CompareTag("Void"))
+        {
+            Destroy(gameObject);
+        }
     }
     private void OnTriggerExit(Collider other)
     {

@@ -19,6 +19,7 @@ TagManager:
   - Void
   - Door
   - Axe
+  - Coin
   layers:
   - Default
   - TransparentFX

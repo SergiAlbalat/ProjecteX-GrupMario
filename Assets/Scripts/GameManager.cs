@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI coinUI;
+    [SerializeField] private TextMeshProUGUI lifeUI;
     public static GameManager gm;
     private int _lives = 3;
     private int _coins = 0;
@@ -17,10 +18,29 @@ public class GameManager : MonoBehaviour
         }
         gm = this;
         DontDestroyOnLoad(gameObject);
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (_lives <= 0)
+        {
+            _lives = 3;
+        }
+        lifeUI = GameObject.Find("Lifes").GetComponent<TextMeshProUGUI>();
+        coinUI = GameObject.Find("Coins").GetComponent<TextMeshProUGUI>();
+
+        lifeUI.text = _lives.ToString();
+        coinUI.text = _coins.ToString();
+    }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     public void LoseLive()
     {
-        _lives -= 1;
+        _lives--;
+        lifeUI.text = _lives.ToString();
         Debug.Log($"Lives remaining: {_lives}");
         if (_lives > 0)
             SceneManager.LoadScene("Game");
@@ -34,6 +54,7 @@ public class GameManager : MonoBehaviour
         {
             _coins = 0;
             _lives++;
+            lifeUI.text = _lives.ToString();
         }
         coinUI.text = _coins.ToString();
     }

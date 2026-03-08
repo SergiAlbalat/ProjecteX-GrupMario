@@ -1015,6 +1015,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KoopaGroup2
       objectReference: {fileID: 0}
+    - target: {fileID: 7985236527528272472, guid: 106ff9ef99f2e2b4cb2d8f4698516f64, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -4002,8 +4006,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8d879fbf374504280745f3b1d9049d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  coinUI: {fileID: 972505411}
-  lifeUI: {fileID: 143738725}
   player: {fileID: 232038074}
 --- !u!4 &776178841
 Transform:
@@ -10284,6 +10286,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KoopaGroup (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7985236527528272472, guid: 106ff9ef99f2e2b4cb2d8f4698516f64, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -10571,6 +10577,10 @@ PrefabInstance:
     - target: {fileID: 4351836910937808741, guid: 106ff9ef99f2e2b4cb2d8f4698516f64, type: 3}
       propertyPath: m_Name
       value: KoopaGroup (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985236527528272472, guid: 106ff9ef99f2e2b4cb2d8f4698516f64, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11438,6 +11448,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KoopaGroup
       objectReference: {fileID: 0}
+    - target: {fileID: 7985236527528272472, guid: 106ff9ef99f2e2b4cb2d8f4698516f64, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -11753,7 +11767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 231645558604129874, guid: 60ae7904bd98e5d449e8e63493b6a248, type: 3}
       propertyPath: jumpForce
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 813361556971209091, guid: 60ae7904bd98e5d449e8e63493b6a248, type: 3}
       propertyPath: m_Name

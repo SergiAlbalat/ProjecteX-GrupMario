@@ -13,6 +13,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
     [SerializeField] private float projectileVelocity = 3f;
     [SerializeField] private float immunityFrames = 1f;
     [SerializeField] private Transform shootPoint;
+    [SerializeField] private Transform winPosition;
     private CharacterController charController;
     private bool hasFireFlower = false;
     private bool isSmall = true;
@@ -166,5 +167,13 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             Destroy(other.gameObject);
             GameManager.gm.GotCoin();
         }
+        else if (other.gameObject.CompareTag("Flag"))
+        {
+            SceneManager.LoadScene("YouWin");
+        }
+    }
+    public void Win()
+    {
+        _mB.Teleport(winPosition.position);
     }
 }

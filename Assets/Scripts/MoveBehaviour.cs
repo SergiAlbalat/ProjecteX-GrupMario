@@ -41,6 +41,7 @@ public class MoveBehaviour : MonoBehaviour
             if(_aB != null)
             {
                 _aB.Jump();
+                GameManager.gm.PlayAudio(SoundManager.AudioClips.Jump);
             }
         }
     }

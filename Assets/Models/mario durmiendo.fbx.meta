@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6e4d862912fbafe428fb58be8813a9b5
+guid: f45b69377913e3c4a9dbeb1ff89e111b
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -7,8 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Tierra1
-    second: {fileID: 2100000, guid: 934a577f04b78c84c95f79e06cd0bb27, type: 2}
+      name: Accesorios_Mario
+    second: {fileID: 2100000, guid: 7a2a866ce7d71c944a71d8ce5baa523d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gorra
+    second: {fileID: 2100000, guid: cc4c6bf3543a8ee49b6731c7c9df410f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ropa_mario
+    second: {fileID: 2100000, guid: 6a70f50e9ce339f44ad4293abb29d0a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Torso y pies_Mario
+    second: {fileID: 2100000, guid: 74bde5be5ff43c14dacdc345a9212f5b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cabeza_Mario
+    second: {fileID: 2100000, guid: 7e4fcf09ba17acf42a72f9aa7870bdaa, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

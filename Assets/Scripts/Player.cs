@@ -28,8 +28,6 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         _inputActions.Player.SetCallbacks(this);
         charController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
-        this.gameObject.SetActive(false);
-        this.gameObject.SetActive(true);
     }
     private void OnEnable()
     {

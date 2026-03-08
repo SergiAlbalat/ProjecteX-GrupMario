@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Player player;
     public static GameManager gm;
     private AudioSource _audio;
-    private int _lives = 4;
+    private int _lives = 3;
     private int _coins = 0;
     private void Awake()
     {
@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
         gm = this;
         DontDestroyOnLoad(gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
+        player.gameObject.SetActive(false);
+        player.gameObject.SetActive(true);
     }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {

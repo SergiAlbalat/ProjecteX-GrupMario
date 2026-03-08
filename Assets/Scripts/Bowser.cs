@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class Bowser : MonoBehaviour
     private Vector3 _playerPosition;
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform shootPoint;
+    [SerializeField] private AnimationBehaviour _aB;
     private void Awake()
     {
         _mB = GetComponent<MoveBehaviour>();
@@ -32,6 +34,10 @@ public class Bowser : MonoBehaviour
         {
             _inRange = true;
 
+        }
+        if (other.gameObject.CompareTag("Void"))
+        {
+            Destroy(gameObject);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -69,5 +75,6 @@ public class Bowser : MonoBehaviour
             proj.transform.rotation = transform.rotation;
             proj.SetActive(true);
         }
+        _aB.Attack();
     }
 }

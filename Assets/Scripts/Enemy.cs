@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
     }
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.CompareTag("MarioFireball"))
+        if (hit.gameObject.CompareTag("MarioFireball") || hit.gameObject.CompareTag("Shell"))
         {
             GameManager.gm.PlayAudio(SoundManager.AudioClips.Hit);
             GameManager.gm.GotCoin();

@@ -20,6 +20,11 @@ public class Shell : MonoBehaviour
     {
         _direction = direction;
         transform.rotation = rotation;
+        Invoke("BecomeLethal", 0.1f);
+    }
+    private void BecomeLethal()
+    {
+        moving = true;
     }
     private void Update()
     {

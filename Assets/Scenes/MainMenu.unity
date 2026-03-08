@@ -1060,7 +1060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundManager
   _clips:
-  - type: 11
+  - type: 12
     clip: {fileID: 8300000, guid: c3ccebc6e5850b842a9f9a6192ba39ee, type: 3}
 --- !u!82 &1883789999
 AudioSource:

@@ -13,6 +13,9 @@ public class UIController : MonoBehaviour, InputSystem_Actions.IUIActions
         _inputActions = new InputSystem_Actions();
         _inputActions.UI.SetCallbacks(this);
         _navigationBehaviour = GetComponent<NavigationBehaviour>();
+    }
+    void Start()
+    {
         AudioClip audioClip = SoundManager.sm.GetClip(SoundManager.AudioClips.StartSound);
         audioSource.PlayOneShot(audioClip);
     }

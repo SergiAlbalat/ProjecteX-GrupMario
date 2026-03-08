@@ -16,29 +16,31 @@ public class MoveBehaviour : MonoBehaviour
     {   
         _cC = GetComponent<CharacterController>();
         currentSpeed = characterSpeed;
+        _cC.enabled = false;
+        _cC.enabled = true;
     }
     private void FixedUpdate()
     {
         if (_cC.isGrounded && _velocity.y < 0)
         {
-            _velocity.y = -0.01f;
+            _velocity.y = -2f;
         }
         _velocity.y -= gravity * Time.deltaTime;
-        _cC.Move(_velocity);
+        _cC.Move(_velocity * Time.deltaTime);
     }
     public void MoveFirstPerson(Vector3 direction)
     {
         Vector3 movement = direction.x * transform.right + direction.z * transform.forward;
-        if(_aB != null)
+        if (_aB != null)
             _aB.Walk(direction.magnitude);
-        Move(movement);
+        _cC.Move(movement * currentSpeed * Time.deltaTime);
     }
     public void Jump()
     {
-        if(_cC.isGrounded)
+        if (_cC.isGrounded)
         {
             _velocity.y = jumpForce;
-            if(_aB != null)
+            if (_aB != null)
             {
                 _aB.Jump();
                 GameManager.gm.PlayAudio(SoundManager.AudioClips.Jump);

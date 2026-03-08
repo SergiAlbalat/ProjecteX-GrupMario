@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1965649818022724077}
   - component: {fileID: 5346570588429673458}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cuerpo 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9050952517957030008}
   - component: {fileID: 3984434589284785303}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ceja 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1193450687562481355}
   - component: {fileID: 5562604965678217082}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Detalle ojos 2.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 887821141706847609}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4484123172094545401}
   - component: {fileID: 2189568586762820102}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ojo 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3689835029916027582}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,7 +490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4095925470169513007}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,7 +522,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3661979374000114095}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PieIzquierdo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -555,7 +555,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1320505782020333628}
   - component: {fileID: 4825948520101265937}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ojo 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,7 +651,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5669289646729361178}
   - component: {fileID: 8187611439824548577}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Detalle ojos 1.2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -747,7 +747,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2905705206049357730}
   - component: {fileID: 7898019215752799546}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Detalle ojos 2.2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -843,7 +843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 899063198463821858}
   - component: {fileID: 8257932234800381253}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ceja 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -944,9 +944,9 @@ GameObject:
   - component: {fileID: 4709523713286773143}
   - component: {fileID: 6763908178115068235}
   - component: {fileID: 7184311958301008686}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Goomba
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1061,8 +1061,6 @@ MonoBehaviour:
   - {fileID: 0}
   enemyType: 0
   shell: {fileID: 0}
-  player: {fileID: 0}
-  CanKill: 1
 --- !u!95 &6763908178115068235
 Animator:
   serializedVersion: 7
@@ -1106,7 +1104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1524331209740202788}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PieIzquierdo_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1138,7 +1136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 540428276835468019}
   - component: {fileID: 1393168008629008411}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pie 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1234,7 +1232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 637981802265440102}
   - component: {fileID: 1071267292276050388}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Detalle ojos 1.1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1330,7 +1328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8317605654922446753}
   - component: {fileID: 348696154237817318}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pie 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1426,7 +1424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6231113867381659033}
   - component: {fileID: 7133072144112347740}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cuerpo 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1521,7 +1519,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7521447043745538907}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PieDerecho_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1552,7 +1550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8573767553816575395}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1584,7 +1582,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7254980269119443849}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PieDerecho
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1617,7 +1615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2807705132904585468}
   - component: {fileID: 5629900285751082476}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Dientes
   m_TagString: Untagged
   m_Icon: {fileID: 0}

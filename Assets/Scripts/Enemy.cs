@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private List<Transform> keyPositions;
     [SerializeField] private EnemyType enemyType;
     [SerializeField] private GameObject shell;
-    [SerializeField] private Player player;
     private MoveBehaviour _mB;
     private Transform currentTarget;
     private int currentKeyPosition = 0;
@@ -58,7 +57,7 @@ public class Enemy : MonoBehaviour
         if (other.gameObject.CompareTag("KillFoot"))
         {
             Die();
-            player.JumpOnKill();
+            GameManager.gm.player.JumpOnKill();
         }
     }
     private void Die()

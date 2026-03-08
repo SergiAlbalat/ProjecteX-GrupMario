@@ -53,7 +53,6 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enemy Enter Trigger");
         if (other.gameObject.CompareTag("KillFoot"))
         {
             Die();

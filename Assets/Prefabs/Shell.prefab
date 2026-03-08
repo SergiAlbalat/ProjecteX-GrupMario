@@ -153,4 +153,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Shell
   bounceCooldown: 0.1
   shellVelocity: 20
+  shellGravity: {x: 0, y: -100, z: 0}
   moving: 0

@@ -7,6 +7,7 @@ public class Shell : MonoBehaviour
 {
     [SerializeField] private float bounceCooldown = 0.1f;
     [SerializeField] private float shellVelocity = 10f;
+    [SerializeField] private Vector3 shellGravity = new Vector3(0, -100f, 0);
     private Rigidbody _rB;
     private Vector3 _direction = new Vector3(0, 0, 0);
     public bool moving = false;
@@ -23,6 +24,7 @@ public class Shell : MonoBehaviour
     private void Update()
     {
         _rB.linearVelocity = _direction * shellVelocity;
+        _rB.AddForce(shellGravity * _rB.mass, ForceMode.Acceleration);
     }
     private void OnCollisionEnter(Collision collision)
     {

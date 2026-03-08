@@ -16,8 +16,7 @@ public class UIController : MonoBehaviour, InputSystem_Actions.IUIActions
     }
     void Start()
     {
-        AudioClip audioClip = SoundManager.sm.GetClip(SoundManager.AudioClips.StartSound);
-        audioSource.PlayOneShot(audioClip);
+        
     }
     private void OnEnable()
     {

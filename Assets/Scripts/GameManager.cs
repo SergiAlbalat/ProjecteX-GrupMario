@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -11,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public Player player;
     public static GameManager gm;
     private AudioSource _audio;
-    private int _lives = 3;
+    private int _lives = 0;
     private int _coins = 0;
     private void Awake()
     {
@@ -29,9 +30,11 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         player = FindAnyObjectByType<Player>();
+        player.gameObject.SetActive(false);
         player.gameObject.SetActive(true);
         if (_lives <= 0)
         {
+            PlayAudio(SoundManager.AudioClips.StartSound);
             _lives = 3;
         }
         _audio = gameObject.GetComponent<AudioSource>();

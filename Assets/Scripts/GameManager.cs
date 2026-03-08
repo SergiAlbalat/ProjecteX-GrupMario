@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI coinUI;
     [SerializeField] private TextMeshProUGUI lifeUI;
-    [SerializeField] private Player player;
+    [SerializeField] public Player player;
     public static GameManager gm;
     private AudioSource _audio;
     private int _lives = 3;
@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
     }
     public void GotCoin()
     {
+        GameManager.gm.PlayAudio(SoundManager.AudioClips.Coin);
         _coins++;
         if(_coins >= 100)
         {

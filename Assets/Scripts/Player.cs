@@ -74,6 +74,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         }else if (hit.gameObject.CompareTag("Axe"))
         {
             Axe axe = hit.gameObject.GetComponent<Axe>();
+            GameManager.gm.PlayAudio(SoundManager.AudioClips.Axe);
             axe.ActivateAxe();
         }
         if (hit.gameObject.CompareTag("Shell"))
@@ -85,6 +86,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
             }
             else
             {
+                GameManager.gm.PlayAudio(SoundManager.AudioClips.Hit);
                 shell.GetDirection(transform.localToWorldMatrix.MultiplyVector(new Vector3(direction.x, 0, direction.y)), transform.rotation);
             }
         }

@@ -11,7 +11,15 @@ public class SoundManager : MonoBehaviour
         Jump,
         LosePowerUp,
         VoidDeath,
-        NormalDeath
+        NormalDeath,
+        Coin,
+        Brick,
+        BlockItem,
+        Hit,
+        Axe,
+        StartSound,
+        Piranha,
+        Tube
     }
     [System.Serializable]
     public struct AudioEntry

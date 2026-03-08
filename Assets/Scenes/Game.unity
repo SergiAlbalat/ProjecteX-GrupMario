@@ -153,7 +153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 6.3, y: -8.8}
+  m_AnchoredPosition: {x: 6.299988, y: -8.799988}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &143738725
@@ -2116,6 +2116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   coinUI: {fileID: 972505411}
   lifeUI: {fileID: 143738725}
+  player: {fileID: 232038074}
 --- !u!4 &776178841
 Transform:
   m_ObjectHideFlags: 0
@@ -2247,6 +2248,22 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: be9ba5317a50ec84cba1e593b8d1c08c, type: 3}
   - type: 2
     clip: {fileID: 8300000, guid: 0c54220385f0cf5449732b24ea70f963, type: 3}
+  - type: 3
+    clip: {fileID: 8300000, guid: 254d20242666e154fbf8c5404bb865ca, type: 3}
+  - type: 4
+    clip: {fileID: 8300000, guid: c1c0977b7313b0045af574ce85f39c44, type: 3}
+  - type: 5
+    clip: {fileID: 8300000, guid: a32d2245800022b48a73047823c66775, type: 3}
+  - type: 6
+    clip: {fileID: 8300000, guid: 630dc63fd958bad46b648e07d77df4ab, type: 3}
+  - type: 7
+    clip: {fileID: 8300000, guid: c64ae0ef4a8f82945a3f990025dc328c, type: 3}
+  - type: 8
+    clip: {fileID: 8300000, guid: 54935672490f9444c951c2fbe167d4d1, type: 3}
+  - type: 9
+    clip: {fileID: 8300000, guid: 95a2ccd602fde4946aa52fade591d275, type: 3}
+  - type: 10
+    clip: {fileID: 8300000, guid: 2583671ea36d72b459064ef35b777b39, type: 3}
 --- !u!4 &794098115 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8032607081865211326, guid: c770b45f4bc369845aabe5a62592cbc6, type: 3}

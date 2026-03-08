@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
     {
         if (hit.gameObject.CompareTag("MarioFireball"))
         {
-            Debug.Log("aaaaa");
+            GameManager.gm.PlayAudio(SoundManager.AudioClips.Hit);
             GameManager.gm.GotCoin();
             Destroy(gameObject);
         }
@@ -63,7 +63,8 @@ public class Enemy : MonoBehaviour
     }
     private void Die()
     {
-        switch(enemyType)
+        GameManager.gm.PlayAudio(SoundManager.AudioClips.Hit);
+        switch (enemyType)
         {
             case EnemyType.Goomba:
                 Destroy(gameObject);

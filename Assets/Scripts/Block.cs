@@ -19,10 +19,12 @@ public class Block : MonoBehaviour
             switch (blockType)
             {
                 case BlockType.BreakableBricks:
+                    GameManager.gm.PlayAudio(SoundManager.AudioClips.Brick);
                     Destroy(gameObject);
                     break;
                 case BlockType.QuestionBlock:
                     SpawnItem();
+                    GameManager.gm.PlayAudio(SoundManager.AudioClips.BlockItem);
                     collected = true;
                     break;
                 case BlockType.CoinBlocks:

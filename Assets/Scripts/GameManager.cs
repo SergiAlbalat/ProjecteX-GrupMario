@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI coinUI;
     [SerializeField] private TextMeshProUGUI lifeUI;
     public static GameManager gm;
+    private AudioSource _audio;
     private int _lives = 3;
     private int _coins = 0;
     private void Awake()
@@ -26,11 +27,14 @@ public class GameManager : MonoBehaviour
         {
             _lives = 3;
         }
+        _audio = gameObject.GetComponent<AudioSource>();
         lifeUI = GameObject.Find("Lifes").GetComponent<TextMeshProUGUI>();
         coinUI = GameObject.Find("Coins").GetComponent<TextMeshProUGUI>();
 
         lifeUI.text = _lives.ToString();
         coinUI.text = _coins.ToString();
+        _audio.Stop();
+        PlayAudio(SoundManager.AudioClips.Music);
     }
     private void OnDestroy()
     {
@@ -45,7 +49,10 @@ public class GameManager : MonoBehaviour
         if (_lives > 0)
             SceneManager.LoadScene("Game");
         else
+        {
+            PlayAudio(SoundManager.AudioClips.GameOver);
             SceneManager.LoadScene("GameOver");
+        }
     }
     public void GotCoin()
     {
@@ -57,5 +64,11 @@ public class GameManager : MonoBehaviour
             lifeUI.text = _lives.ToString();
         }
         coinUI.text = _coins.ToString();
+    }
+    public void PlayAudio(SoundManager.AudioClips clip)
+    {
+        AudioClip audioClip = SoundManager.sm.GetClip(clip);
+        if (audioClip != null)
+            _audio.PlayOneShot(audioClip);
     }
 }

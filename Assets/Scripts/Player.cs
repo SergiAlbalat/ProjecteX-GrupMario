@@ -111,6 +111,7 @@ public class Player : MonoBehaviour, InputSystem_Actions.IPlayerActions
         charController.enabled = false;
         transform.localScale = new Vector3(1f, 1f, 1f);
         charController.enabled = true;
+        GameManager.gm.PlayAudio(SoundManager.AudioClips.PowerUp);
     }
     public void Die()
     {

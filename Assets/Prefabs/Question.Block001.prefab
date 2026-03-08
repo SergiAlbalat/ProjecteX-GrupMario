@@ -69,6 +69,10 @@ PrefabInstance:
       value: Question.Block001
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9ae6f4dde2a1cce41bde46344c04451e, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9ae6f4dde2a1cce41bde46344c04451e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -106,6 +110,7 @@ MonoBehaviour:
   blockType: 2
   itemInside: {fileID: 3733164418993955314, guid: 8dde0e658ec3bf345b40d63c1f75fe53, type: 3}
   player: {fileID: 0}
+  emptyBlockPrefab: {fileID: 1748405500713241866, guid: 8a52201ad421b294987890ee294c0094, type: 3}
 --- !u!65 &3700157379809107455
 BoxCollider:
   m_ObjectHideFlags: 0

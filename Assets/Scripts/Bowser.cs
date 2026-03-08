@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 [RequireComponent(typeof(MoveBehaviour))]
 public class Bowser : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Bowser : MonoBehaviour
     [SerializeField] private GameObject projectile;
     [SerializeField] private Transform shootPoint;
     [SerializeField] private AnimationBehaviour _aB;
+    [SerializeField] private Player player;
     private void Awake()
     {
         _mB = GetComponent<MoveBehaviour>();
@@ -37,8 +39,13 @@ public class Bowser : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Void"))
         {
-            Destroy(gameObject);
+            Death();
         }
+    }
+    private void Death()
+    {
+        player.Win();
+        Destroy(gameObject);
     }
     private void OnTriggerExit(Collider other)
     {
